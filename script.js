@@ -1,75 +1,99 @@
 const questions = [
     {
-        q: "데이트 장소를 정할 때 나는?",
-        a: "미리 핫플 검색해서 예약까지 완료!",
-        b: "그날 기분 따라 끌리는 곳으로 고고!",
-        type: "JP"
+        q: "데이트 계획을 세울 때 나는?",
+        a: "시간 단위로 꼼꼼하게 계획한다!",
+        b: "그날 기분에 맞춰 유동적으로 정한다!",
+        type: "JP", aScore: "J", bScore: "P"
     },
     {
-        q: "오빠에게 선물을 준다면?",
-        a: "실용적이고 필요한 물건이 최고지.",
-        b: "의미 담긴 손편지와 감성템이 최고지.",
-        type: "TF"
+        q: "오빠에게 줄 선물 고를 때?",
+        a: "가장 실용적이고 필요한 것!",
+        b: "정성과 감성이 듬뿍 담긴 것!",
+        type: "TF", aScore: "T", bScore: "F"
     },
     {
         q: "오빠가 나랑 싸우고 속상해하면?",
-        a: "왜 그랬는지 차분하게 설명하고 푼다.",
-        b: "일단 꼭 안아주며 마음을 풀어준다.",
-        type: "TF"
+        a: "차분하게 대화로 원인을 분석한다.",
+        b: "일단 꼭 안아주며 마음부터 달래준다.",
+        type: "TF", aScore: "T", bScore: "F"
     },
     {
-        q: "주말 데이트 약속이 취소된다면?",
-        a: "아쉽지만 어쩔 수 없지. 푹 쉬자.",
-        b: "시간 붕 떴네.. 당장 친구들에게 연락해 본다.",
-        type: "EI"
+        q: "데이트 없는 주말, 나의 에너지는?",
+        a: "집에서 뒹굴거리며 폰 하기 (기력 보충)",
+        b: "친구라도 만나서 밖으로 나가기 (기분 전환)",
+        type: "EI", aScore: "I", bScore: "E"
     },
     {
-        q: "오빠가 '나 우울해서 빵 샀어'라고 한다면?",
-        a: "무슨 빵 샀어? 맛있겠네.",
-        b: "왜 우울해? 무슨 일 있었어? ㅠㅠ",
-        type: "TF"
+        q: "여행 가서 갑자기 일정이 틀어진다면?",
+        a: "스트레스 받지만 대안을 빨리 찾는다.",
+        b: "그럴 수도 있지! 발길 닿는 대로 간다.",
+        type: "JP", aScore: "J", bScore: "P"
     },
     {
-        q: "여행 계획을 세울 때 나는?",
-        a: "엑셀로 10분 단위 계획표 작성.",
-        b: "대충 지역만 정하고 가서 생각하자.",
-        type: "JP"
-    },
-    {
-        q: "만약 오빠쓰가 바퀴벌레로 변한다면?",
-        a: "싫지만.. 그래도 애지중지 키운다 ㅠㅠ",
-        b: "미안해.. 바퀴벌레는 무리인것같아..",
-        type: "F_T"
-    },
-    {
-        q: "로또 1등 당첨된다면?",
-        a: "바로 오빠쓰한테 전화해서 자랑하고 반띵한다",
-        b: "음.. 일단 비밀로 하고 통장에 고이 모셔둔다.",
-        type: "E_I"
+        q: "기념일에 받고 싶은 선물은?",
+        a: "내가 말했던 바로 그 필요한 아이템!",
+        b: "오빠가 고민해서 준비한 서프라이즈!",
+        type: "SN", aScore: "S", bScore: "N"
     },
     {
         q: "내 절친의 깻잎을 오빠가 떼어준다면?",
-        a: "매너 좋네! 아무 생각 없음.",
-        b: "뭐야? 굳이? 질투 폭발!!",
-        type: "F_T"
+        a: "매너 좋네! 고맙다고 한다.",
+        b: "손이 없어? 왜 떼어줘? 질투 폭발!",
+        type: "TF", aScore: "T", bScore: "F"
     },
     {
-        q: "연락 문제, 더 참을 수 없는 것은?",
-        a: "24시간 동안 연락 두절 (잠수)",
-        b: "24시간 내내 10분 단위로 보고하기 (집착)",
-        type: "J_P"
+        q: "연락 빈도, 나에게 더 중요한 건?",
+        a: "일정한 시간에 규칙적인 연락",
+        b: "자유롭지만 실시간으로 소통하기",
+        type: "JP", aScore: "J", bScore: "P"
     },
     {
-        q: "남사친/여사친 허용 범위는?",
-        a: "단둘이 술 마시는 것까지 가능",
-        b: "절대 불가. 단둘이 밥 먹는 것도 찜찜함",
-        type: "F_T"
+        q: "오빠랑 싸웠을 때 나의 화해 방식은?",
+        a: "문제가 해결될 때까지 논리적으로 따진다.",
+        b: "풀어질 때까지 애교 부리거나 스킨십한다.",
+        type: "TF", aScore: "T", bScore: "F"
     },
     {
-        q: "오빠가 나한테 삐졌을 때",
-        a: "왜 삐졌는지 이유를 묻고 대화를 시도한다.",
-        b: "일단 오빠가 먼저 화해할 때까지 기다린다.",
-        type: "TF"
+        q: "오빠가 나한테 삐진 것 같을 때?",
+        a: "왜 삐졌는지 조목조목 이유를 묻는다.",
+        b: "일단 미안하다고 하고 기분을 살핀다.",
+        type: "TF", aScore: "T", bScore: "F"
+    },
+    {
+        q: "데이트 중 예쁜 카페를 발견했다면?",
+        a: "메뉴판 먼저 확인하고 맛이 중요하지!",
+        b: "카페 분위기랑 인테리어 상상하며 설렌다!",
+        type: "SN", aScore: "S", bScore: "N"
+    },
+    {
+        q: "오빠가 '나 몸이 안 좋아'라고 하면?",
+        a: "어디가 어떻게 아픈데? 약은 먹었어?",
+        b: "헐 어떡해ㅠㅠ 내가 갈까? 많이 아파?ㅠㅠ",
+        type: "SN", aScore: "S", bScore: "N"
+    },
+    {
+        q: "우리의 미래를 이야기할 때 나는?",
+        a: "구체적인 수입, 집, 자녀 계획 등 현실적인 얘기",
+        b: "함께 늙어가는 따뜻한 분위기와 막연한 행복",
+        type: "SN", aScore: "S", bScore: "N"
+    },
+    {
+        q: "기념일 데이트 장소를 고를 때?",
+        a: "오붓하게 우리끼리만 있는 조용한 공간",
+        b: "사람 많고 화려한 요즘 제일 핫한 핫플",
+        type: "EI", aScore: "I", bScore: "E"
+    },
+    {
+        q: "영화나 드라마 볼 때 나의 몰입도는?",
+        a: "상황 설정의 현실성을 따지며 본다.",
+        b: "내가 주인공이 된 것처럼 감정 이입한다.",
+        type: "SN", aScore: "S", bScore: "N"
+    },
+    {
+        q: "연애 백문백답을 한다면?",
+        a: "질문 하나하나 성실하고 정확하게 채운다.",
+        b: "내 마음이 이끄는 대로 느낌 있게 적는다.",
+        type: "JP", aScore: "J", bScore: "P"
     },
 ];
 
@@ -109,6 +133,13 @@ const results = {
 };
 
 let currentQuestion = 0;
+let score = {
+    E: 0, I: 0,
+    S: 0, N: 0,
+    T: 0, F: 0,
+    J: 0, P: 0
+};
+let userAnswers = [];
 
 function startQuiz() {
     document.getElementById('intro').classList.remove('active');
@@ -142,11 +173,15 @@ function nextQuestion(choice) {
     document.getElementById('btn-A').blur();
     document.getElementById('btn-B').blur();
 
+    // Store answer
+    userAnswers[currentQuestion] = choice;
+
     currentQuestion++;
 
     if (currentQuestion < questions.length) {
         showQuestion();
     } else {
+        calculateScore();
         showLoading();
     }
 }
@@ -156,6 +191,17 @@ function prevQuestion() {
         currentQuestion--;
         showQuestion();
     }
+}
+
+function calculateScore() {
+    // Reset score
+    score = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+
+    userAnswers.forEach((choice, index) => {
+        const q = questions[index];
+        const point = (choice === 'A') ? q.aScore : q.bScore;
+        score[point]++;
+    });
 }
 
 function showLoading() {
@@ -190,9 +236,25 @@ function showResult() {
     document.getElementById('result').classList.add('active');
     document.getElementById('result').style.display = 'block';
 
-    // Random result for demo // Logic can be improved to use score
-    const types = ["TYPE1", "TYPE2", "TYPE3", "TYPE4"];
-    const randomType = types[Math.floor(Math.random() * types.length)];
+    // Calculate final MBTI
+    const mbti =
+        (score.E >= score.I ? 'E' : 'I') +
+        (score.S >= score.N ? 'S' : 'N') +
+        (score.T >= score.F ? 'T' : 'F') +
+        (score.J >= score.P ? 'J' : 'P');
+
+    // Map MBTI to 4 types
+    let randomType = "TYPE1";
+    if (mbti.includes('F') && mbti.includes('P')) randomType = "TYPE4"; // Free Spirit
+    else if (mbti.includes('F') && mbti.includes('J')) randomType = mbti.includes('E') ? "TYPE1" : "TYPE2"; // Romantic or Healer
+    else if (mbti.includes('T') && mbti.includes('J')) randomType = "TYPE3"; // Leader
+    else if (mbti.includes('T') && mbti.includes('P')) randomType = "TYPE4"; // Free Spirit (or Leader?) -> Let's say TYPE4
+
+    // Better mapping
+    if (mbti === "ENFJ" || mbti === "ESFJ" || mbti === "ENFP") randomType = "TYPE1";
+    else if (mbti === "INFJ" || mbti === "ISFJ" || mbti === "INFP" || mbti === "ISFP") randomType = "TYPE2";
+    else if (mbti === "ENTJ" || mbti === "ESTJ" || mbti === "INTJ" || mbti === "ISTJ") randomType = "TYPE3";
+    else randomType = "TYPE4"; // ENTP, ESTP, INTP, ISTP...
 
     const res = results[randomType];
     document.getElementById('result-title').innerText = res.title;
