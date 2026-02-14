@@ -127,15 +127,34 @@ function showQuestion() {
     // Progress Bar
     const percent = ((currentQuestion) / questions.length) * 100;
     document.getElementById('progress').style.width = percent + '%';
+
+    // Back Button Visibility
+    const backBtn = document.getElementById('btn-back');
+    if (currentQuestion > 0) {
+        backBtn.style.display = 'inline-block';
+    } else {
+        backBtn.style.display = 'none';
+    }
 }
 
 function nextQuestion(choice) {
+    // Blur buttons to fix sticky hover on mobile
+    document.getElementById('btn-A').blur();
+    document.getElementById('btn-B').blur();
+
     currentQuestion++;
 
     if (currentQuestion < questions.length) {
         showQuestion();
     } else {
         showLoading();
+    }
+}
+
+function prevQuestion() {
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        showQuestion();
     }
 }
 
@@ -274,7 +293,7 @@ function showLetter() {
         익숙함에 속아 소중함을 잃지말자 리몬쓰!! 
 
         526일동안 함께해줘서 고마워 발렌타인 데이 선물이야 ㅎㅎ
-        사랑해 리모쓰 💕
+        사랑해 리몬쓰 💕
     `;
 
     msg.style.display = 'block';
