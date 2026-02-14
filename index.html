@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리의 연애 유형 테스트</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Gaegu:wght@400;700&family=Gamja+Flower&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Audio Element -->
+        <audio id="bgm" loop>
+            <source src="you.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- Intro Section -->
+        <section id="intro" class="screen active">
+            <h1 class="title">리모니를 위한<br>연애 유형 테스트 ❤️</h1>
+            <p class="subtitle">나는 어떤 여자친구일까?<br>그리고 오빠는 어떤 남자친구일까?</p>
+            <div class="heart-animation">💖</div>
+            <button class="btn start-btn" onclick="startQuiz()">테스트 시작하기</button>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="screen hidden">
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="question-box">
+                <h2 id="question-text">질문 텍스트</h2>
+            </div>
+            <div class="options">
+                <button class="btn option-btn" onclick="nextQuestion('A')" id="btn-A">옵션 A</button>
+                <button class="btn option-btn" onclick="nextQuestion('B')" id="btn-B">옵션 B</button>
+            </div>
+        </section>
+
+        <!-- Loading Section -->
+        <section id="loading" class="screen hidden">
+            <div class="spinner">💘</div>
+            <p id="loading-text">우리 사랑 분석 중...</p>
+        </section>
+
+        <!-- Result Section -->
+        <section id="result" class="screen hidden">
+            <h2 class="result-label">나의 연애 유형은?</h2>
+            <h1 id="result-title" class="result-title">결과 제목</h1>
+            <div id="result-img" class="result-img">🧸</div>
+            <p id="result-desc" class="result-desc">결과 설명</p>
+
+            <!-- Fun Addition: Hashtags -->
+            <div class="hashtag-box">
+                <span id="result-tag1" class="tag">#태그1</span>
+                <span id="result-tag2" class="tag">#태그2</span>
+                <span id="result-tag3" class="tag">#태그3</span>
+            </div>
+
+            <!-- Fun Addition: Usage Manual -->
+            <div class="manual-box">
+                <h3>📜 리모니 취급 주의사항</h3>
+                <ul id="result-manual" class="manual-list">
+                    <li>밥 안 주면 물어요.</li>
+                    <li>예쁘다 해주면 춤 춰요.</li>
+                </ul>
+            </div>
+
+            <!-- Fun Addition: Stat Bars -->
+            <div class="stat-box">
+                <div class="stat-item">
+                    <span>애교력</span>
+                    <div class="bar-bg">
+                        <div class="bar-fill" id="stat-cute" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <span>눈치력</span>
+                    <div class="bar-bg">
+                        <div class="bar-fill" id="stat-sense" style="width: 60%"></div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <span>개그력</span>
+                    <div class="bar-bg">
+                        <div class="bar-fill" id="stat-humor" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-box compatibility">
+                <h3>❤️ 오빠와의 궁합은? ❤️</h3>
+                <p class="compatibility-desc">
+                    오빠의 유형: <span class="highlight">포근한 힐러 🧸</span><br>
+                    <span id="compatibility-text">천생연분! 환상의 짝꿍이에요!</span>
+                </p>
+            </div>
+
+            <div class="special-box">
+                <h3>To. 사랑하는 리모니에게</h3>
+                <div class="letter-box">
+                    <video id="special-video" class="hidden-video" playsinline>
+                        <source src="you-movie.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="hidden-message" id="special-msg">
+                        (편지 도착!)
+                    </p>
+                </div>
+                <button class="btn special-btn" onclick="showLetter()">💌 편지 열어보기 (BGM ON 🎵)</button>
+            </div>
+
+            <button class="btn restart-btn" onclick="location.reload()">다시 하기</button>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
