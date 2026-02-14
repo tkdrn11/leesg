@@ -19,6 +19,14 @@ body {
     overflow-x: hidden;
 }
 
+.heart {
+    font-size: 30px;
+}
+
+.subtitle {
+    margin-bottom: 5px;
+}
+
 .container {
     width: 90%;
     max-width: 400px;
@@ -114,6 +122,14 @@ p {
     font-size: 5rem;
     animation: heartBeat 1.5s infinite;
     margin: 20px 0;
+}
+
+.intro-img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.1);
 }
 
 @keyframes heartBeat {
