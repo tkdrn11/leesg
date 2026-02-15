@@ -477,10 +477,10 @@ function shareResult() {
             url: shareUrl
         }).catch(err => {
             console.log('Native share failed, fallback to copy alert.');
-            alert('결과 링크가 복사되었습니다! 친구들에게 공유해보세요. ❤️');
+            alert('결과 링크가 복사되었습니다!');
         });
     } else {
-        alert('결과 링크가 복사되었습니다! 친구들에게 공유해보세요. ❤️');
+        alert('결과 링크가 복사되었습니다!');
     }
 }
 
