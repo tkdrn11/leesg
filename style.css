@@ -68,7 +68,7 @@ p {
     font-size: 1.1rem;
     font-weight: bold;
     color: var(--white);
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
     border: none;
     border-radius: 50px;
     cursor: pointer;
@@ -86,7 +86,7 @@ p {
 
 @media (hover: hover) {
     .btn:hover {
-        background-color: #ff2a55;
+        /* background-color: #ff2a55; */
         transform: scale(1.02);
     }
 }
@@ -99,8 +99,8 @@ p {
 
 @media (hover: hover) {
     .option-btn:hover {
-        background-color: var(--bg-color);
-        color: var(--primary-color);
+        /* background-color: var(--bg-color); */
+        /* color: var(--primary-color); */
     }
 }
 
