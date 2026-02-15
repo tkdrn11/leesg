@@ -257,30 +257,49 @@ p {
     font-weight: bold;
 }
 
+.manual-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
 .manual-box {
     background-color: #fff;
     border: 2px dashed var(--secondary-color);
     border-radius: 15px;
     padding: 15px;
-    margin: 20px 0;
     text-align: left;
+    flex: 1;
 }
 
 .manual-box h3 {
     text-align: center;
     color: var(--text-color);
     margin-top: 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .manual-list {
     padding-left: 20px;
     margin-bottom: 0;
+    font-size: 0.95rem;
 }
 
 .manual-list li {
     margin-bottom: 8px;
     line-height: 1.5;
+}
+
+/* Restart Button Color Adjustment */
+.restart-btn {
+    background-color: #adb5bd;
+}
+
+@media (hover: hover) {
+    .restart-btn:hover {
+        background-color: #6c757d;
+    }
 }
 
 .stat-box {

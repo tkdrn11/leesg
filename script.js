@@ -335,25 +335,37 @@ function showResult() {
     document.getElementById('result-tag2').innerText = res.tags[1];
     document.getElementById('result-tag3').innerText = res.tags[2];
 
-    // Manual
-    const manualList = document.getElementById('result-manual');
-    manualList.innerHTML = '';
+    // Manuals (User & Partner)
+    const userManualList = document.getElementById('result-manual');
+    userManualList.innerHTML = '';
     res.manual.forEach(item => {
         const li = document.createElement('li');
         li.innerText = item;
-        manualList.appendChild(li);
+        userManualList.appendChild(li);
+    });
+
+    // Partner Manual (Fixed as TYPE8 per the compatibility logic)
+    const partnerRes = results["TYPE8"];
+    const partnerManualList = document.getElementById('partner-manual');
+    partnerManualList.innerHTML = '';
+    partnerRes.manual.forEach(item => {
+        const li = document.createElement('li');
+        li.innerText = item;
+        partnerManualList.appendChild(li);
     });
 
     // Stats (Animate bars)
     setTimeout(() => {
-        document.getElementById('stat-cute').style.width = res.stats.independence + '%';
-        document.getElementById('stat-sense').style.width = res.stats.synergy + '%';
-        document.getElementById('stat-humor').style.width = res.stats.logic + '%';
+        const statCute = document.getElementById('stat-cute');
+        const statSense = document.getElementById('stat-sense');
+        const statHumor = document.getElementById('stat-humor');
+        if (statCute) statCute.style.width = res.stats.independence + '%';
+        if (statSense) statSense.style.width = res.stats.synergy + '%';
+        if (statHumor) statHumor.style.width = res.stats.logic + '%';
     }, 100);
 
     // Compatibility Logic (All compared against TYPE8 - Chic Individualist)
     const compatibilityText = document.getElementById('compatibility-text');
-
     const descriptions = {
         "TYPE1": {
             pair: "정열적인 장미 🌹 & 시크한 마이웨이 🦋",
@@ -365,7 +377,7 @@ function showResult() {
         },
         "TYPE3": {
             pair: "스마트한 가이드 😎 & 시크한 마이웨이 🦋",
-            msg: "똑 부러지는 리모니와 쿨한 오빠의 만남은 '세련된 어른들의 연애' 그 자체입니다! 감정 소모보다는 명확한 대화와 서로의 커리어를 중시하죠. 각자의 영역을 침범하지 않으면서도, 어려운 일이 생기면 머리를 맞대고 가장 효율적인 답을 찾아내어 함께 승리하는 멋진 파트너십을 보여줍니다! �❤️🦋"
+            msg: "똑 부러지는 리모니와 쿨한 오빠의 만남은 '세련된 어른들의 연애' 그 자체입니다! 감정 소모보다는 명확한 대화와 서로의 커리어를 중시하죠. 각자의 영역을 침범하지 않으면서도, 어려운 일이 생기면 머리를 맞대고 가장 효율적인 답을 찾아내어 함께 승리하는 멋진 파트너십을 보여줍니다! 😎❤️🦋"
         },
         "TYPE4": {
             pair: "침착한 분석가 🧐 & 시크한 마이웨이 🦋",
@@ -390,10 +402,12 @@ function showResult() {
     };
 
     const comp = descriptions[finalType];
-    compatibilityText.innerHTML = `
-        <b>[${comp.pair}]</b><br>
-        ${comp.msg}
-    `;
+    if (compatibilityText) {
+        compatibilityText.innerHTML = `
+            <b>[${comp.pair}]</b><br>
+            ${comp.msg}
+        `;
+    }
 
     // Confetti Effect
     if (typeof confetti === 'function') {
@@ -402,6 +416,40 @@ function showResult() {
             spread: 70,
             origin: { y: 0.6 }
         });
+    }
+}
+
+function shareResult() {
+    if (document.activeElement) {
+        document.activeElement.blur();
+    }
+
+    let mbti = "MBTI";
+    try {
+        mbti = document.getElementById('result-title').innerText.match(/\((.*?)\)/)[1];
+    } catch (e) { }
+
+    let typeTitle = "유형";
+    try {
+        typeTitle = document.getElementById('result-title').innerText.split('(')[0].trim();
+    } catch (e) { }
+
+    const shareData = {
+        title: '우리의 연애 유형 테스트',
+        text: `리모니의 연애 유형은 [${typeTitle}]입니다! 우리 사랑 확인하러 가기 ❤️`,
+        url: window.location.href
+    };
+
+    if (navigator.share) {
+        navigator.share(shareData).catch(console.error);
+    } else {
+        const dummy = document.createElement('input');
+        document.body.appendChild(dummy);
+        dummy.value = window.location.href;
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+        alert('링크가 복사되었습니다! 친구들에게 공유해보세요. ❤️');
     }
 }
 
