@@ -74,6 +74,14 @@ p {
     cursor: pointer;
     transition: transform 0.2s, background-color 0.2s;
     font-family: 'Noto Sans KR', sans-serif;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn:focus,
+.btn:active {
+    outline: none;
+    box-shadow: none;
 }
 
 @media (hover: hover) {
