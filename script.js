@@ -1,3 +1,20 @@
+// Check for shared result on load
+window.onload = function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sharedType = urlParams.get('result');
+    const sharedMbti = urlParams.get('mbti');
+
+    if (sharedType && sharedMbti) {
+        // Hide all major screens
+        document.getElementById('intro').style.display = 'none';
+        document.getElementById('quiz').style.display = 'none';
+        document.getElementById('loading').style.display = 'none';
+
+        // Directly show result
+        showResult(sharedType, sharedMbti);
+    }
+};
+
 const questions = [
     {
         q: "데이트 계획을 세울 때 나는?",
@@ -298,31 +315,40 @@ function showLoading() {
     }, 800);
 }
 
-function showResult() {
+function showResult(sharedType, sharedMbti) {
     document.getElementById('loading').classList.remove('active');
     document.getElementById('loading').style.display = 'none';
     document.getElementById('result').classList.add('active');
     document.getElementById('result').style.display = 'block';
 
-    // Calculate final MBTI
-    const mbti =
-        (score.E >= score.I ? 'E' : 'I') +
-        (score.S >= score.N ? 'S' : 'N') +
-        (score.T >= score.F ? 'T' : 'F') +
-        (score.J >= score.P ? 'J' : 'P');
+    // Use shared data or calculate new
+    let finalType, mbti;
+    if (sharedType && sharedMbti) {
+        finalType = sharedType;
+        mbti = sharedMbti;
+    } else {
+        // Calculate final MBTI
+        mbti =
+            (score.E >= score.I ? 'E' : 'I') +
+            (score.S >= score.N ? 'S' : 'N') +
+            (score.T >= score.F ? 'T' : 'F') +
+            (score.J >= score.P ? 'J' : 'P');
 
-    // --- Granular 8-Type Mapping ---
-    let finalType = "TYPE1";
-
-    if (mbti.includes('FJ')) {
-        finalType = mbti.includes('E') ? "TYPE1" : "TYPE2"; // ExFJ: TYPE1, IxFJ: TYPE2
-    } else if (mbti.includes('TJ')) {
-        finalType = mbti.includes('E') ? "TYPE3" : "TYPE4"; // ExTJ: TYPE3, IxTJ: TYPE4
-    } else if (mbti.includes('FP')) {
-        finalType = mbti.includes('E') ? "TYPE5" : "TYPE6"; // ExFP: TYPE5, IxFP: TYPE6
-    } else if (mbti.includes('TP')) {
-        finalType = mbti.includes('E') ? "TYPE7" : "TYPE8"; // ExTP: TYPE7, IxTP: TYPE8
+        // --- Granular 8-Type Mapping ---
+        finalType = "TYPE1";
+        if (mbti.includes('FJ')) {
+            finalType = mbti.includes('E') ? "TYPE1" : "TYPE2";
+        } else if (mbti.includes('TJ')) {
+            finalType = mbti.includes('E') ? "TYPE3" : "TYPE4";
+        } else if (mbti.includes('FP')) {
+            finalType = mbti.includes('E') ? "TYPE5" : "TYPE6";
+        } else if (mbti.includes('TP')) {
+            finalType = mbti.includes('E') ? "TYPE7" : "TYPE8";
+        }
     }
+
+    // Save current result for sharing if needed
+    window.currentResult = { type: finalType, mbti: mbti };
 
     const res = results[finalType];
     document.getElementById('result-title').innerHTML = `${res.title} <span style="font-size: 1rem; color: #888;">(${mbti})</span>`;
@@ -424,34 +450,40 @@ function shareResult() {
         document.activeElement.blur();
     }
 
-    let mbti = "MBTI";
-    try {
-        mbti = document.getElementById('result-title').innerText.match(/\((.*?)\)/)[1];
-    } catch (e) { }
+    const res = window.currentResult;
+    if (!res) return;
 
-    let typeTitle = "유형";
-    try {
-        typeTitle = document.getElementById('result-title').innerText.split('(')[0].trim();
-    } catch (e) { }
+    // Create a shareable URL with parameters
+    const url = new URL(window.location.origin + window.location.pathname);
+    url.searchParams.set('result', res.type);
+    url.searchParams.set('mbti', res.mbti);
+    const shareUrl = url.toString();
 
-    const shareData = {
-        title: '우리의 연애 유형 테스트',
-        text: `리모니의 연애 유형은 [${typeTitle}]입니다! 우리 사랑 확인하러 가기 ❤️`,
-        url: window.location.href
-    };
+    const title = document.getElementById('result-title').innerText.split('(')[0].trim();
 
+    // Copy to clipboard first to ensure it's saved
+    const dummy = document.createElement('textarea');
+    document.body.appendChild(dummy);
+    dummy.value = shareUrl;
+    dummy.select();
+    document.execCommand('copy');
+    document.body.removeChild(dummy);
+
+    // Try native share if available, otherwise just alert
     if (navigator.share) {
-        navigator.share(shareData).catch(console.error);
+        navigator.share({
+            title: '우리의 연애 유형 테스트 결과',
+            text: `리모니의 연애 유형은 [${title}]입니다! 결과 확인하러 가기 ❤️`,
+            url: shareUrl
+        }).catch(err => {
+            console.log('Native share failed, fallback to copy alert.');
+            alert('결과 링크가 복사되었습니다! 친구들에게 공유해보세요. ❤️');
+        });
     } else {
-        const dummy = document.createElement('input');
-        document.body.appendChild(dummy);
-        dummy.value = window.location.href;
-        dummy.select();
-        document.execCommand('copy');
-        document.body.removeChild(dummy);
-        alert('링크가 복사되었습니다! 친구들에게 공유해보세요. ❤️');
+        alert('결과 링크가 복사되었습니다! 친구들에게 공유해보세요. ❤️');
     }
 }
+
 
 function showLetter() {
     const msg = document.getElementById('special-msg');

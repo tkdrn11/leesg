@@ -329,13 +329,25 @@ p {
     line-height: 1.5;
 }
 
+/* Share Button */
+.share-btn {
+    background-color: #4cc9f0;
+    margin-top: 20px;
+}
+
+@media (hover: hover) {
+    .share-btn:hover {
+        background-color: #4895ef;
+    }
+}
+
 .start-btn {
     background-color: var(--primary-color);
 }
 
 /* Restart Button Color Adjustment */
 .restart-btn {
-    background-color: var(--primary-color);
+    background-color: #adb5bd;
 }
 
 @media (hover: hover) {
