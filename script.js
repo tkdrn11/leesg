@@ -128,7 +128,7 @@ const results = {
         desc: "사랑을 아낌없이 표현하고 관계의 성장을 위해 끊임없이 노력하는 따뜻한 리더예요! 연인을 위한 서프라이즈와 꼼꼼한 케어를 즐기며, 함께하는 모든 순간에 온 마음을 다합니다. 때론 격한 질투도 사랑의 증거라 믿는 뜨거운 사랑꾼 타입이죠.",
         tags: ["#표현의왕", "#사랑의리더", "#열정사랑꾼"],
         manual: ["사랑한다는 말 아끼지 않기", "사소한 변화도 알아채주기", "미래 계획 함께 세우기"],
-        stats: { cute: 85, sense: 70, humor: 60 }
+        stats: { independence: 40, synergy: 95, logic: 60 }
     },
     "TYPE2": {
         title: "다정한 수호자 🧸",
@@ -136,7 +136,7 @@ const results = {
         desc: "조용히 곁을 지켜주며 연인의 필요를 세심하게 알아채는 헌신적인 안식처예요. 화려한 이벤트보다 진심 어린 말 한마디와 한결같은 태도를 소중히 여깁니다. 연인이 지쳤을 때 아무 말 없이 안아주는 것만으로도 큰 위안을 주는 깊은 내면의 소유자랍니다.",
         tags: ["#헌신적안식처", "#배려의달인", "#한결같음"],
         manual: ["고마움을 충분히 표현하기", "거짓말은 금물!", "조용히 쉬고 싶을 때 방해하지 않기"],
-        stats: { cute: 75, sense: 95, humor: 40 }
+        stats: { independence: 70, synergy: 90, logic: 50 }
     },
     "TYPE3": {
         title: "스마트한 가이드 😎",
@@ -144,15 +144,15 @@ const results = {
         desc: "명확한 주관과 논리적인 소통으로 관계를 주도하는 든든한 해결사예요! 데이트의 질과 효율을 중요하게 생각하며, 어려운 상황에서도 지혜롭게 돌파구를 찾아내죠. 감정적인 소모보다는 명쾌한 대화를 선호하며, 연인에게 의지가 되는 멋진 파트너 스타일입니다.",
         tags: ["#해결사파트너", "#명쾌한소통", "#자기관리철저"],
         manual: ["답답하게 굴지 않기", "능력을 인정하고 칭찬하기", "가끔은 투정도 다 받아주기"],
-        stats: { cute: 45, sense: 98, humor: 65 }
+        stats: { independence: 50, synergy: 75, logic: 98 }
     },
     "TYPE4": {
-        title: "침착한 분석가 �",
-        img: "�",
+        title: "침착한 분석가 🧐",
+        img: "🧐",
         desc: "겉은 단단하고 차가워 보일 수 있지만, 사실 누구보다 관계를 진지하고 깊게 생각하는 신중파예요. 섣부른 감정 폭발보다 문제의 본질을 파악하려 노력하며, 한번 신뢰한 연인에게는 끝까지 충성스러운 알짜배기 사랑꾼이랍니다. 독립적인 공간과 시간이 소중한 현실적인 연인이에요.",
         tags: ["#내공깊은사랑", "#신중한관계", "#알짜배기"],
         manual: ["감정적으로 몰아세우지 않기", "함께 성장하는 대화하기", "혼자만의 시간 존중해주기"],
-        stats: { cute: 40, sense: 90, humor: 50 }
+        stats: { independence: 85, synergy: 70, logic: 95 }
     },
     "TYPE5": {
         title: "빛나는 비타민 ☀️",
@@ -160,7 +160,7 @@ const results = {
         desc: "함께 있으면 지루할 틈이 없는 에너자이저! 밝은 에너지와 긍정적인 생각으로 연인의 삶에 웃음꽃을 피워줍니다. 뻔한 데이트 루틴을 거부하며, 늘 새로운 즐거움을 찾아내어 매일을 특별한 영화의 한 장면처럼 만드는 마법 같은 존재랍니다.",
         tags: ["#긍정비타민", "#시트콤연애", "#무한매력"],
         manual: ["같이 신나게 리액션해주기", "장난꾸러기 같은 모습 귀여워하기", "가끔은 차분하게 들어주기"],
-        stats: { cute: 98, sense: 60, humor: 95 }
+        stats: { independence: 30, synergy: 98, logic: 40 }
     },
     "TYPE6": {
         title: "섬세한 예술가 🎨",
@@ -168,7 +168,7 @@ const results = {
         desc: "사소한 온기와 말투 하나에도 깊게 반응하고 감동하는 말랑말랑한 감성파예요. 화려함보다 두 사람만의 특별한 감성과 고유한 분위기를 무엇보다 소중히 여깁니다. 상처받기 쉽지만 그만큼 연인을 향한 마음이 깊고 아름다운 로맨티시스트랍니다.",
         tags: ["#감동하는마음", "#예술적감성", "#순수한사랑"],
         manual: ["예쁜 말만 골라쓰기", "마음을 충분히 읽어주기", "작은 선물에도 의미 부여해주기"],
-        stats: { cute: 90, sense: 55, humor: 50 }
+        stats: { independence: 60, synergy: 95, logic: 30 }
     },
     "TYPE7": {
         title: "쿨한 모험가 ⛵",
@@ -176,7 +176,7 @@ const results = {
         desc: "뒤끝 없이 시원시원하고 스릴 넘치는 연애를 추구하는 자유로운 영혼이에요! 복잡한 밀당보다 솔직하고 직설적인 표현을 선호하며, 함께 있을 때 가장 재미있는 친구 같은 연인이기도 하죠. 고리타분한 형식을 벗어나 매 순간을 즐기는 쿨한 매력의 소유자랍니다.",
         tags: ["#쿨한매력", "#스릴넘치는연애", "#솔직담백"],
         manual: ["속으로 쌓아두지 말고 말하기", "같이 즐거운 모험 떠나기", "자존심 건드리지 않기"],
-        stats: { cute: 50, sense: 85, humor: 98 }
+        stats: { independence: 90, synergy: 70, logic: 75 }
     },
     "TYPE8": {
         title: "시크한 마이웨이 🦋",
@@ -184,7 +184,7 @@ const results = {
         desc: "자신만의 세계가 뚜렷하고 타인의 시선에 흔들리지 않는 쿨한 개인주의자 스타일이에요. 서로의 사생활과 경계를 완벽하게 존중해 줄 때 가장 행복을 느낍니다. 겉보기엔 무심해 보여도 오직 당신에게만 마음을 열고 곁을 허락한, 아주 특별하고 시크한 연인이죠.",
         tags: ["#독립적관계", "#쿨내진동", "#특별한허락"],
         manual: ["적당한 거리 유지 필수", "과도한 관심보다는 믿음 보여주기", "진솔하고 담백하게 다가가기"],
-        stats: { cute: 35, sense: 95, humor: 80 }
+        stats: { independence: 100, synergy: 85, logic: 95 }
     }
 };
 
@@ -198,6 +198,9 @@ let score = {
 let userAnswers = [];
 
 function startQuiz() {
+    if (document.activeElement) {
+        document.activeElement.blur();
+    }
     document.getElementById('intro').classList.remove('active');
     document.getElementById('intro').style.display = 'none';
     document.getElementById('quiz').classList.add('active');
@@ -222,12 +225,16 @@ function showQuestion() {
     } else {
         backBtn.style.display = 'none';
     }
+
+    // Scroll to top to reset view for new question
+    window.scrollTo(0, 0);
 }
 
 function nextQuestion(choice) {
-    // Blur buttons to fix sticky hover on mobile
-    document.getElementById('btn-A').blur();
-    document.getElementById('btn-B').blur();
+    // Blur buttons to fix sticky hover/focus on mobile
+    if (document.activeElement) {
+        document.activeElement.blur();
+    }
 
     // Store answer
     userAnswers[currentQuestion] = choice;
@@ -243,6 +250,11 @@ function nextQuestion(choice) {
 }
 
 function prevQuestion() {
+    // Blur buttons to fix sticky hover/focus on mobile
+    if (document.activeElement) {
+        document.activeElement.blur();
+    }
+
     if (currentQuestion > 0) {
         currentQuestion--;
         showQuestion();
@@ -334,9 +346,9 @@ function showResult() {
 
     // Stats (Animate bars)
     setTimeout(() => {
-        document.getElementById('stat-cute').style.width = res.stats.cute + '%';
-        document.getElementById('stat-sense').style.width = res.stats.sense + '%';
-        document.getElementById('stat-humor').style.width = res.stats.humor + '%';
+        document.getElementById('stat-cute').style.width = res.stats.independence + '%';
+        document.getElementById('stat-sense').style.width = res.stats.synergy + '%';
+        document.getElementById('stat-humor').style.width = res.stats.logic + '%';
     }, 100);
 
     // Compatibility Logic (All compared against TYPE8 - Chic Individualist)
