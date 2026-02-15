@@ -469,8 +469,6 @@ function showLetter() {
 
     // Letter Content
     msg.innerHTML = `
-        사랑하는 리몬쓰에게 ❤️
-
         하이 리몬쓰 ㅎㅎ
         리모니가 어떤 유형이 나오든,
         나한테는 리모니가 세상에서 제일 예쁘고 소중한 사람이야.
