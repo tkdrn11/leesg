@@ -299,9 +299,13 @@ p {
     line-height: 1.5;
 }
 
+.start-btn {
+    background-color: var(--primary-color);
+}
+
 /* Restart Button Color Adjustment */
 .restart-btn {
-    background-color: #adb5bd;
+    background-color: var(--primary-color);
 }
 
 @media (hover: hover) {
